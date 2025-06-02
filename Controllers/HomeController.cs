@@ -61,6 +61,13 @@ namespace MvcTodoApp.Controllers
             // TODO: تأكد من أن المهمة موجودة وأن newTitle غير فارغ
             // TODO: عدل عنوان المهمة مثل newTitle
             
+            var task = tasks.FirstOrDefault(t => t.Id == id);
+            if (task != null && !string.IsNullOrEmpty(newTitle))
+            {
+                
+                task.Title = newTitle; 
+            }
+            
             return RedirectToAction("Index");
         }
     }
